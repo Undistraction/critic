@@ -1,4 +1,18 @@
-# README
+# Critic
+
+A simple API for analysing images for their dominant colours using k-means clustering.
+
+## Analyse a Jpg
+
+```bash
+curl -X POST -d '{"n_colours": "7", "image_url": "https://i.ibb.co/L8rTYy4/image.jpg"}' -H  "Content-Type: application/json" "http://127.0.0.1:5000/analyse-color"
+```
+
+## Analyse a Png (with an alpha channel)
+
+```bash
+curl -X POST -d '{"n_colours": "7", "image_url": "https://i.ibb.co/TYs0KSY/image.png"}' -H  "Content-Type: application/json" "http://127.0.0.1:5000/analyse-color"
+```
 
 ## Environment
 
@@ -10,36 +24,14 @@ To do it manually:
 pyenv local python-playground
 ```
 
-# Jupyter
-
-To open Jupyter notebooks:
-
-```bash
-jupyter notebook
-```
-
-# Start the server:
+## Start the server
 
 ```bash
 python src/app.py
 ```
 
-# Analyse and image:
+## Run Tests
 
-## Jpg
-
-```
-curl -X POST -d '{"n_colours": "7", "image_url": "https://i.ibb.co/L8rTYy4/image.jpg"}' -H  "Content-Type: application/json" "http://127.0.0.1:5000/analyse-color"
-```
-
-## Png with alpha
-
-```
-curl -X POST -d '{"n_colours": "7", "image_url": "https://i.ibb.co/TYs0KSY/image.png"}' -H  "Content-Type: application/json" "http://127.0.0.1:5000/analyse-color"
-```
-
-# Tests
-
-```
+```bash
 pytest tests/test_app.py  -s
 ```
