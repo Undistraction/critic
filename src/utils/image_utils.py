@@ -9,7 +9,6 @@ def load_image(image_url):
     """Load an image from the supplied URL."""
     try:
         image = io.imread(image_url)
-        print('@load_image', type(image), image.shape)
         # Normalize pixel values to [0, 1]
         return np.array(image, dtype=np.float64) / 255
     except FileNotFoundError:

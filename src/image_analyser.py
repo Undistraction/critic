@@ -1,9 +1,10 @@
+from arrow import get
 import numpy as np
 import typing
 from sklearn.cluster import KMeans
 from sklearn.utils import shuffle
 from skimage import color
-from src.utils.color_utils import discard_transparency, lab_sort_by_frequency, lab_to_all, lab_to_hex_array, lab_to_rgb_array, lab_sort_by_hue
+from src.utils.color_utils import discard_transparency, get_frequency_ratios, lab_sort_by_frequency, lab_to_all, lab_to_hex_array, lab_to_rgb_array, lab_sort_by_hue
 
 # ------------------------------------------------------------------------------
 # Const 
@@ -63,6 +64,9 @@ def analyse_image(image, n_colors):
   
   result = {
     'colors': {
+      'meta': {
+        'frequencyRatios': get_frequency_ratios(lab_colours, labels),
+      },
       'sorted': {
         'by_hue': by_hue,
         'by_frequency': by_frequency
