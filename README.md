@@ -27,7 +27,7 @@ pyenv local python-playground
 ## Start the server
 
 ```bash
-python src/app.py
+python app.py
 ```
 
 ## Run Tests
